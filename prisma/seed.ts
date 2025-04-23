@@ -16,6 +16,21 @@ async function main() {
       role: "admin",
     },
   });
+
+  const category = await prisma.category.create({
+    data: {
+      name: 'Reclamação'
+    }
+  })
+
+  await prisma.item.create({
+    data: {
+      name: 'Teste',
+      categoryId: category.id
+    }
+  })
+
+  
 }
 
 main()

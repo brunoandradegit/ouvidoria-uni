@@ -47,6 +47,7 @@ export default function FormOccurrence({
   const [formStudent, setFormStudent] = useState(false);
   const [studentData, setStudentData] = useState<Student | null>(null);
 
+
   if (!categories || !items) {
     return <Spinner />;
   }
@@ -109,12 +110,12 @@ export default function FormOccurrence({
               className={({ active, checked }) =>
                 `${
                   active
-                    ? "ring-2 ring-white ring-opacity-60 ring-offset-2 ring-offset-green-300"
+                    ? "ring-2 ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-800"
                     : ""
                 }
                   ${
                     checked
-                      ? "bg-green-400 bg-opacity-75 text-white"
+                      ? "bg-blue-900 bg-opacity-75 text-white"
                       : "bg-white"
                   }
                     relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none`
@@ -166,11 +167,11 @@ export default function FormOccurrence({
                     className={({ active, checked }) =>
                       `${
                         active
-                          ? "ring-2 ring-white ring-opacity-60 ring-offset-2 ring-offset-green-300"
+                          ? "ring-2 ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-800"
                           : ""
                       }
                 ${
-                  checked ? "bg-green-400 bg-opacity-75 text-white" : "bg-white"
+                  checked ? "bg-blue-900 bg-opacity-75 text-white" : "bg-white"
                 }
                   relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none`
                     }

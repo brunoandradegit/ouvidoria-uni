@@ -35,12 +35,12 @@ export default function HomePage({ categories, items }: NewProps) {
               className={({ active, checked }) =>
                 `${
                   active
-                    ? "ring-2 ring-white ring-opacity-60 ring-offset-2 ring-offset-green-300"
+                    ? "ring-2 ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-900"
                     : ""
                 }
                   ${
                     checked
-                      ? "bg-green-400 bg-opacity-75 text-white"
+                      ? "bg-blue-900 bg-opacity-75 text-white"
                       : "bg-white"
                   }
                     relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none`
@@ -84,7 +84,7 @@ export default function HomePage({ categories, items }: NewProps) {
           categories={categories}
         />
       )}
-      {selected === 1 && "BUscar"}
+      {selected === 1 && "Buscar"}
     </div>
   );
 }

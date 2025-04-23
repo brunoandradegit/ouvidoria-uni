@@ -7,7 +7,7 @@ import Image from "next/image";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Ouvidoria UniEvangelica",
+  title: "Ouvidoria Uni",
   description: "Ouvidoria UniEvangelica",
 };
 
@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <div>
       <div className="flex-1">
-        <Image src={logo} alt="logo" className="m-auto mt-4 h-12" />
+        <Image src={logo} alt="logo" className="m-auto mt-4 w-64" />
       </div>
       <main className={inter.className}>{children}</main>
     </div>
