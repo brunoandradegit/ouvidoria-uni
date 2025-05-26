@@ -337,8 +337,6 @@ function CheckIcon(props: any) {
     </svg>
   );
 }
-<<<<<<< HEAD
-=======
 
 function formatPhoneNumber(phoneNumber: string) {
   const cleaned = ("" + phoneNumber).replace(/\D/g, "");
@@ -348,4 +346,3 @@ function formatPhoneNumber(phoneNumber: string) {
   }
   return phoneNumber;
 }
->>>>>>> 881d6f2 (update)
