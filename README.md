@@ -33,7 +33,7 @@ Abra [http://localhost:3000](http://localhost:3000) no seu navegador e já verá
 
 
 Autores: 
-Alex Carlos do Nascimento Filho
-Bruno Eduardo Andrade Azevedo
-Hyago Brucy Dias Martins
-João Pedro Venancio De Oliveira
+Alex Carlos do Nascimento Filho,
+Bruno Eduardo Andrade Azevedo,
+Hyago Brucy Dias Martins,
+João Pedro Venancio De Oliveira.
