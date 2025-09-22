@@ -1,11 +1,14 @@
 'use client';
-import FormOccurrence from '@/app/components/Forms/Occurrence';
-import { RadioGroup } from '@headlessui/react';
-import { Category, Item, Type } from '@prisma/client';
-import { useState } from 'react';
-import SearchOccurrence from '../Forms/SearchOccurrence';
-import InstructionsModal from '../modals/Instructions';
+// Marca o componente como client-side (necessário no Next.js 13+)
 
+import FormOccurrence from '@/app/components/Forms/Occurrence'; // Formulário para criar nova ocorrência
+import { RadioGroup } from '@headlessui/react'; // Componente de UI acessível para seleção de opções
+import { Category, Item, Type } from '@prisma/client'; // Tipos gerados pelo Prisma
+import { useState } from 'react'; // Hook de estado
+import SearchOccurrence from '../Forms/SearchOccurrence'; // Formulário para buscar ocorrência existente
+import InstructionsModal from '../modals/Instructions'; // Modal com instruções
+
+// Propriedades recebidas no componente
 export type NewProps = {
   categories?: Category[];
   items?: Item[];
@@ -13,8 +16,10 @@ export type NewProps = {
 };
 
 export default function HomePage({ categories, items, types }: NewProps) {
+  // Estado para armazenar a opção selecionada (0 ou 1)
   const [selected, setSelected] = useState();
 
+  // Opções do menu principal
   const options = [
     {
       name: 'Nova Solicitação',
@@ -27,11 +32,16 @@ export default function HomePage({ categories, items, types }: NewProps) {
   ];
 
   return (
-    <div className="h-full w-full flex  flex-col">
+    <div className="h-full w-full flex flex-col">
+      {/* Modal de instruções sempre renderizado */}
       <InstructionsModal />
+
+      {/* Título */}
       <h1 className="text-center mb-3 font-semibold text-[32px]">
         OUVIDORIA
       </h1>
+
+      {/* Texto de introdução */}
       <span className="mb-3 text-justify">
         Este é o seu canal direto com a UniEvangelica.
         <br /> Aqui você pode registrar suas reclamações, sugestões de melhoria,
@@ -41,13 +51,17 @@ export default function HomePage({ categories, items, types }: NewProps) {
         que você possa acompanhar o andamento de sua manifestação, um número de
         protocolo será gerado.
       </span>
+
+      {/* Grupo de seleção (Nova ou Visualizar) */}
       <RadioGroup value={selected} onChange={setSelected} className="mb-4">
+        {/* Label invisível para acessibilidade */}
         <RadioGroup.Label className="sr-only">Server size</RadioGroup.Label>
+
         <div className="space-y-2 ">
           {options.map((option) => (
             <RadioGroup.Option
               key={option.name}
-              value={option.id}
+              value={option.id} // valor da opção (0 ou 1)
               className={({ active, checked }) =>
                 `${
                   active
@@ -62,6 +76,7 @@ export default function HomePage({ categories, items, types }: NewProps) {
                     relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none`
               }
             >
+              {/* Renderização condicional se a opção está selecionada */}
               {({ checked }) => (
                 <>
                   <div className="flex w-full items-center justify-between">
@@ -69,7 +84,7 @@ export default function HomePage({ categories, items, types }: NewProps) {
                       <div className="text-sm">
                         <RadioGroup.Label
                           as="p"
-                          className={`font-medium  ${
+                          className={`font-medium ${
                             checked ? 'text-white' : 'text-gray-900'
                           }`}
                         >
@@ -77,6 +92,7 @@ export default function HomePage({ categories, items, types }: NewProps) {
                         </RadioGroup.Label>
                       </div>
                     </div>
+                    {/* Ícone de check exibido apenas quando está selecionado */}
                     {checked && (
                       <div className="shrink-0 text-white">
                         <CheckIcon className="h-6 w-6" />
@@ -89,6 +105,8 @@ export default function HomePage({ categories, items, types }: NewProps) {
           ))}
         </div>
       </RadioGroup>
+
+      {/* Se usuário escolhe "Nova Solicitação", exibe o formulário */}
       {selected === 0 && (
         <FormOccurrence
           defaultValues={{
@@ -101,11 +119,14 @@ export default function HomePage({ categories, items, types }: NewProps) {
           types={types}
         />
       )}
+
+      {/* Se usuário escolhe "Visualizar Solicitação", exibe busca */}
       {selected === 1 && <SearchOccurrence />}
     </div>
   );
 }
 
+// Ícone de check (SVG customizado usado no RadioGroup)
 function CheckIcon(props: any) {
   return (
     <svg viewBox="0 0 24 24" fill="none" {...props}>
