@@ -37,7 +37,7 @@ export default function HomePage({ categories, items, types }: NewProps) {
       <InstructionsModal />
 
       {/* Título */}
-      <h1 className="text-center mb-3 font-semibold text-[32px]">
+      <h1 className="text-center mb-3 font-semibold text-[32px] ">
         OUVIDORIA
       </h1>
 

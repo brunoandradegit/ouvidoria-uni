@@ -5,6 +5,7 @@ import prisma from "@/libs/prisma/prismaClient";
 import { Metadata } from "next";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
+import { ForceLightMode } from '@/app/components/ForceLightMode';
 
 export const metadata: Metadata = {
   title: "Administração | Ouvidoria UniEvangelica",
@@ -32,9 +33,9 @@ export default async function AdminLayout({
   }
 
   return (
-    <>
+    <ForceLightMode>
       <HeaderOuvidoria role={user.role} />
       <Section noWidthLimit>{children}</Section>
-    </>
+    </ForceLightMode>
   );
 }

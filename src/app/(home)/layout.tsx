@@ -18,8 +18,8 @@ export default function RootLayout({
 }) {
   return (
     <div>
-      <div className="flex-1">
-        <Image src={logo} alt="logo" className="m-auto mt-4 h-12" />
+      <div className="flex-1 p-3">
+        <Image src={logo} alt="logo" className="m-auto mt-6 h-24" />
       </div>
       <main className={inter.className}>{children}</main>
     </div>
